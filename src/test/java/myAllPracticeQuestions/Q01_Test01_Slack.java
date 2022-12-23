@@ -24,6 +24,5 @@ public class Q01_Test01_Slack {
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Salesforce Apex Questions Bank", Keys.ENTER);
         WebElement aramaSonucu = driver.findElement(By.className("sg-col-inner"));
         System.out.println(aramaSonucu.getText());
-
     }
 }

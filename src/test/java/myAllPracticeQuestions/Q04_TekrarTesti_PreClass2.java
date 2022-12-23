@@ -57,5 +57,6 @@ public class Q04_TekrarTesti_PreClass2 {
 
         //8Sayfayi kapatin
         driver.close();
+
     }
 }

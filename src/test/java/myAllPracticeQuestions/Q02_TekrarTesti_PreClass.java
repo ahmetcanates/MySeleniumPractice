@@ -61,6 +61,5 @@ public class Q02_TekrarTesti_PreClass {
         }
 
         driver.close();
-
     }
 }

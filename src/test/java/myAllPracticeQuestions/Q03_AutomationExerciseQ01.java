@@ -122,5 +122,6 @@ public class Q03_AutomationExerciseQ01 {
         }
 
         driver.findElement(By.xpath("//*[@data-qa='continue-button']")).click();
+
     }
 }
