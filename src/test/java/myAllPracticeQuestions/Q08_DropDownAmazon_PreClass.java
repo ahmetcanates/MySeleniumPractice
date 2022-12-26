@@ -37,7 +37,6 @@ public class Q08_DropDownAmazon_PreClass {
 
     @Test
     public void test01() {
-
         List<WebElement> options = select.getOptions();
         int i=0;
         for(WebElement w:options) {
@@ -47,11 +46,13 @@ public class Q08_DropDownAmazon_PreClass {
         System.out.println(i);
         Assert.assertEquals(45,i);
     }
+
 //-Test 2
 //1. Kategori menusunden Books secenegini secin
 //2. Arama kutusuna Java yazin ve aratin
 //3. Bulunan sonuc sayisini yazdirin
 //4. Sonucun Java kelimesini icerdigini test edin
+
     @Test
     public void test02() throws InterruptedException {
     select.selectByVisibleText("Books");
@@ -62,6 +63,5 @@ public class Q08_DropDownAmazon_PreClass {
 
     String sonucSayisi = driver.findElement(By.xpath("(//div[@class='sg-col-inner'])[1]")).getText();
     Assert.assertTrue(sonucSayisi.contains("Java"));
-
     }
 }
