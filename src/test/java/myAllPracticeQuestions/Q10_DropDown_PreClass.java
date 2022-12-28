@@ -36,8 +36,11 @@ public class Q10_DropDown_PreClass {
         WebElement dropdownMenu = driver.findElement(By.xpath("//*[@id='dropdown']"));
         Select select = new Select(dropdownMenu);
         select.selectByIndex(1);
+        System.out.println(select.getFirstSelectedOption().getText());
         select.selectByValue("2");
+        System.out.println(select.getFirstSelectedOption().getText());
         select.selectByVisibleText("Option 1");
+        System.out.println(select.getFirstSelectedOption().getText());
         List<WebElement> options = driver.findElements(By.xpath("//*[@id='dropdown']"));
         for(WebElement w:options) {
             System.out.println(w.getText());
