@@ -39,10 +39,10 @@ public class Q12_Test04_Slack {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
-//    @After
-//    public void tearDown() {
-//        driver.close();
-//    }
+    @After
+    public void tearDown() {
+        driver.close();
+    }
 
     @Test
     public void test() {
