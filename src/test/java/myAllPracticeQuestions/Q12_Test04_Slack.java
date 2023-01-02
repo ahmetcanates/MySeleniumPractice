@@ -66,9 +66,9 @@ public class Q12_Test04_Slack {
 
         //Then Kullanıcının eklendiğini doğrular.
         String isim1 = "Ahmet Ates";
-        WebElement kullaniciElement = driver.findElement(By.xpath("(//*[@class='sorting_1'])[1]"));
+        WebElement kullaniciElement = driver.findElement(By.xpath("//*[@class='sorting_1']"));
         String kullaniciIsmi = kullaniciElement.getText();
-        Assert.assertTrue("boyle bir kullanici yok",kullaniciIsmi.contains(isim1));
+        Assert.assertEquals(kullaniciIsmi,isim1);
         //And Eklediği kullanıcı kaydını siler
         WebElement kayitSilme = driver.findElement(By.xpath("//*[@id='row_58']"));
         kayitSilme.click();
