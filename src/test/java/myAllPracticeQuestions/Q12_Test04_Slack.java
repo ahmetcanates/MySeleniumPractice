@@ -66,6 +66,7 @@ public class Q12_Test04_Slack {
 
         //Then Kullanıcının eklendiğini doğrular.
         String isim1 = "Ahmet Ates";
+        driver.findElement(By.xpath("//input[@type='search']")).sendKeys("Ahmet Ates");
         WebElement kullaniciElement = driver.findElement(By.xpath("//*[@class='sorting_1']"));
         String kullaniciIsmi = kullaniciElement.getText();
         Assert.assertEquals(kullaniciIsmi,isim1);
@@ -76,7 +77,6 @@ public class Q12_Test04_Slack {
         deleteButton.click();
         driver.findElement(By.xpath("//button[text()='Delete']")).click();  //for verify
         //Then Kullanıcinin silindiğini doğrular.
-        driver.findElement(By.xpath("//*[@type='search']")).sendKeys("Ahmet Ates");
         WebElement noMatch = driver.findElement(By.xpath("//*[text()='No matching records found']"));
         Assert.assertTrue("silinmemis",noMatch.isDisplayed());
 
