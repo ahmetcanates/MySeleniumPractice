@@ -1,6 +1,7 @@
 package myAllPracticeQuestions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -9,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
-import java.util.List;
 
 public class Q17_IFrame_Preclass {
     WebDriver driver;
@@ -24,23 +24,27 @@ public class Q17_IFrame_Preclass {
 
     @Test
     public void test() {
-        //● Bir class olusturun: IframeTest02
-        // 1) http://demo.guru99.com/test/guru99home/ sitesine gidiniz
-        driver.get("http://demo.guru99.com/test/guru99home/");
-        // 2) sayfadaki iframe sayısını bulunuz.
-        List<WebElement> iframeNumber = driver.findElements(By.xpath("//iframe"));
-        int iframeSayisi = iframeNumber.size();
-        System.out.println(iframeSayisi);
-        // 3) ilk iframe'deki (Youtube) play butonuna tıklayınız.
-        WebElement ilkIframe = driver.findElement(By.xpath("//*[@wmode='transparent']"));
-        driver.switchTo().frame(ilkIframe);
-        driver.findElement(By.xpath("//*[@aria-label='Oynat']")).click();
-        // 4) ilk iframe'den çıkıp ana sayfaya dönünüz
+        //Bir class olusturun: IframeTest
+        //● https://the-internet.herokuapp.com/iframe adresine gidin.
+        driver.get("https://the-internet.herokuapp.com/iframe");
+
+        //● Bir metod olusturun: iframeTest
+        //○ “An IFrame containing….” textinin erisilebilir oldugunu test edin ve konsolda yazdirin.
+        WebElement baslik = driver.findElement(By.xpath("//h3"));
+        Assert.assertTrue(baslik.isDisplayed());
+        System.out.println(baslik.getText());
+
+        //○Text Box’a “Merhaba Dunya!” yazin.
+        driver.switchTo().frame(0);
+        WebElement iframeParagraph = driver.findElement(By.id("tinymce"));
+        iframeParagraph.clear();
+        iframeParagraph.sendKeys("Merhaba Dunya!");
+
+        //○TextBox’in altinda bulunan “Elemental Selenium” linkini textinin gorunur oldugunu
+        //dogrulayin ve konsolda yazdirin.
         driver.switchTo().parentFrame();
-        //5) ikinci iframe'deki (Jmeter Made Easy) linke (
-        //https://www.guru99.com/live-selenium-project.html
-        //) tıklayınız
-        driver.switchTo().frame(driver.findElement(By.id("a077aa5e")));
-        driver.findElement(By.xpath("//*[@src='Jmeter720.png']")).click();
+        WebElement bottomText = driver.findElement(By.xpath("//*[@style='text-align: center;']"));
+        Assert.assertTrue(bottomText.isDisplayed());
+        System.out.println(bottomText.getText());
     }
 }
